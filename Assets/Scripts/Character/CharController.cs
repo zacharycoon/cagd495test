@@ -17,46 +17,61 @@ namespace Assets.Scripts.Character
 				return _instance;
 			}
 		}
+		Components.PlayerMovement _movement;
 
 
 
-	float dashPhase;
-	float wallJumping =0;
-	float playerDirection =0;
-	Vector2 moveVector = Vector2.zero;
-	bool walled, moving;
-	float speed = 18f;
-	float verticleSpeed =0f;
-	CharacterController charCont;
+		float playerDirection;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		MovePlayer ();
+		void Awake(){
+			_movement = gameObject.AddComponent<Components.PlayerMovement> ();
 
-
-	}
-
-
-
-	void MovePlayer() //manages vertical and horizontal movement of player. incorperates variables: verticleSpeed, jumpstate, grounded, verticleSpeed, playerDireciton
-
-	{
-		if ((wallJumping == 0)&&(!walled) ) { //disable movement if player is walljumping, on the wall, or dashing
-
-			if(!moving &&(dashPhase != 2f)){
-				playerDirection = 0f; //if there is no movement coming in, reset playerDirection and stop movement
-			}
-			moveVector = new Vector2 (playerDirection * speed, verticleSpeed); //calculate movement in the x and y 
 		}
 
-		charCont.Move (moveVector * Time.deltaTime); //apply movement in the x and y
+		void Update(){
+			GetInput ();
+			_movement.MovePlayer (playerDirection);
+			_movement.WallGrab ();
 
-	}
+		}
+
+
+			void GetInput() //gets input to be used in the manageInput function, subject to be removed once a input manager is implemeted
+			{
+
+				float horzInput = Input.GetAxis ("Horizontal");
+
+
+			if (Mathf.Abs (horzInput) > 0.15f) {
+				if (horzInput > 0) {
+					playerDirection = 1f;
+				}
+				if (horzInput < 0) {
+					playerDirection = -1f;
+				}
+			} else {
+				playerDirection = 0f;
+			}
+
+
+				//if ((Input.GetKeyDown(KeyCode.Space))
+					if(Input.GetButtonDown("Fire1"))
+				{
+				_movement.JumpPlayer(playerDirection);
+				}
+			
+				//if (Input.GetKeyDown (KeyCode.LeftShift)) {
+					if(Input.GetButtonDown("Fire2")){
+				_movement.DashPlayer();
+				} 
+
+
+
+
+
+			}
+
+
 
 }
 }
