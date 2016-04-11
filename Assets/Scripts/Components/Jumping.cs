@@ -9,18 +9,17 @@ namespace Assets.Scripts.Components
 
 		float jumpHeight = 25f;
 		float jumpStage = 0f;
-		float maxJumps = 2f;
+		public static float maxJumps = 2f;
 
 		float maxWallJumps = 2f;
 		float wallJumps = 0f;
 		float wallJumpDir = 0f; 
 		float wallJumpGrav = 0f;
-		float wallBuffer = 11f;
-		float wallDist = 0.6f;
+
 		float wallJumpx = 12f;
 		float wallJumpy = 30f;
-		float wallDrag = -1f;
-		float realWallJumpy;
+
+		float realWallJumpy = 30f;
 		float timeToApex  = 0.1f;
 		float timeToMidApex = 0.15f;
 		float timeBackToWall = 0.15f;
@@ -42,9 +41,10 @@ namespace Assets.Scripts.Components
 
 
 		public void BasicJump(){
-			
-			PlayerMovement.verticleSpeed = jumpHeight;
 
+			if (jumpStage < maxJumps) {
+				PlayerMovement.verticleSpeed = jumpHeight;
+			}
 		
 
 		}
@@ -53,40 +53,48 @@ namespace Assets.Scripts.Components
 		public void WallJump (float playerDir,float wallDir){
 				
 			if (wallDir == 1f) { //if we are on the right wall
-				if((playerDir>0f)&&(wallJumpDir == 0)){ //and holding the right key while against the right wall, reset wall jumping and slowly drag down the wall
-						PlayerMovement.moveVector = new Vector2 (0, wallDrag);
-
+				if ((playerDir > 0f) && (wallJumpDir == 0)) { //and holding the right key while against the right wall, reset wall jumping and slowly drag down the wall
+				//	PlayerMovement.moveVector = new Vector2 (0, wallDrag);
+					//Debug.Log ("More drag than west hollywood");
+					}
 					if((wallJumps < maxWallJumps)){ //if I jump while I am on the wall, set wall jumping to one, which is handled in update
 						wallJumps++;
 						PlayerMovement.overrideInput = true;
 						wallJumpDir = 1f; //as a reminder, wall jumping is used like a 3 variable boolean, with -1 being left, 1 being right, and 0 being stand still
 						StartCoroutine ("wallJumpCD"); //and start the walljumpCD coroutine
 						}
-					} 
-					else {
-						PlayerMovement.moveVector = new Vector2 (wallBuffer * (-1), PlayerMovement.verticleSpeed); //if we are not holding the key towards the wall down
+					 
+					//else {
+					//	PlayerMovement.moveVector = new Vector2 (wallBuffer * (-1), PlayerMovement.verticleSpeed); //if we are not holding the key towards the wall down
 						//then create a small buffer zone between the player and wall
-					}
+				//	}
 				}
 			if (wallDir == -1f) {//same as above but for left instead
-				if((playerDir<0f)&&(wallJumpDir== 0)){
-						PlayerMovement.moveVector  = new Vector2 (0, wallDrag);
+				if ((playerDir < 0f) && (wallJumpDir == 0)) {
+					//PlayerMovement.moveVector  = new Vector2 (0, wallDrag);
 
-					if((wallJumps < maxWallJumps)){
+					if ((wallJumps < maxWallJumps)) {
 						wallJumps++;
 						PlayerMovement.overrideInput = true;
 						wallJumpDir = -1f; //as a reminder, wall jumping is used like a 3 variable boolean, with -1 being left, 1 being right, and 0 being stand still
 						StartCoroutine ("wallJumpCD");
-						}
-					} else {
-						PlayerMovement.moveVector  = new Vector2 (wallBuffer, PlayerMovement.verticleSpeed); //same as for right
-
-
 					}
+				}
+				// else {
+					//	PlayerMovement.moveVector  = new Vector2 (wallBuffer, PlayerMovement.verticleSpeed); //same as for right
+
+
+					//}
 				}
 			
 
 		}
+
+		public void resetJumps(){
+			jumpStage = 0;
+			wallJumps = 0;
+		}
+
 
 		IEnumerator wallJumpCD(){ //this is invoked when the player wall jumps
 

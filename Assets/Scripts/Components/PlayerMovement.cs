@@ -43,6 +43,7 @@ namespace Assets.Scripts.Components
 
 			if (applyGravity) {
 				if (grounded) {
+					_jump.resetJumps ();
 					verticleSpeed = -0.1f;
 					checkforwalls = false;
 				}
@@ -78,8 +79,8 @@ namespace Assets.Scripts.Components
 
 		public void WallGrab(){
 			
-				walled = _wallGrab.WallSlide (grounded);
-		
+			walled = _wallGrab.WallSlide (playerDir);
+			
 			
 		}
 
