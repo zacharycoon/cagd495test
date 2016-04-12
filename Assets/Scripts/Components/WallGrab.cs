@@ -74,7 +74,7 @@ namespace Assets.Scripts.Components
 
 			if(Physics.Raycast(rightRay, wallDist, whatisWall)) //check to see if there is a wall within wallDist to the right of us
 			{
-				
+		
 				return 1f;
 				rightwalled = true;
 

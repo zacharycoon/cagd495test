@@ -48,7 +48,9 @@ namespace Assets.Scripts.Components
 			if ((grounded || (walled != 0f))&& applyGravity) {
 				_dash.ResetDashing ();
 			}
-
+			if (walled !=0) {
+				_dash.OverrideDash ();
+			}
 
 			if (applyGravity) {
 				if (grounded) {
@@ -92,6 +94,7 @@ namespace Assets.Scripts.Components
 
 		public void WallGrab(){
 			if (checkforwalls&& !grounded) {
+
 				walled = _wallGrab.WallSlide (playerDir);
 			}
 			
@@ -108,6 +111,7 @@ namespace Assets.Scripts.Components
 			applyGravity = false;
 			_dash.StartDashing (playerDir);
 			yield return new WaitForSeconds (0.1f);
+			checkforwalls = true;
 			applyGravity = true;
 		}
 

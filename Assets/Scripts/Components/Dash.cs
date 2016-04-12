@@ -21,7 +21,7 @@ namespace Assets.Scripts.Components
 		bool Dashing;
 		bool facingRight = true;
 		float dashDir;
-		float lockedDashDur = 0.2f;
+		float lockedDashDur = 0f;
 		public DashPhase currentPhase;
 
 		public void ManageDashing(bool grounded, float playerDir){
@@ -54,7 +54,7 @@ namespace Assets.Scripts.Components
 				//grounded = false; 
 				PlayerMovement.overrideInput = true;
 
-				Debug.Log (facingRight);
+
 				//StartCoroutine ("SetBoost"); //dashing speed is reset upon touching the ground, set boost prevents 
 				PlayerMovement.verticleSpeed = dashJumpHeight; //the ground check from checking if we are grounded until a small amount of time has passed
 				PlayerMovement.speed = dashSpeedIncrease; //speed up the character to boosted speed 
@@ -100,13 +100,21 @@ namespace Assets.Scripts.Components
 			}
 		}
 
+		public void OverrideDash(){
+		//	if (currentPhase == DashPhase.resting) {
+		//		return;
+		//	}
+			currentPhase = DashPhase.resting;
+
+		}
+
 		IEnumerator SetDashing(){
 
 
 			yield return new WaitForSeconds (lockedDashDur); //this controls how long the player has their input locked  while dashing
-
-			currentPhase = DashPhase.unlockedDash; 
-
+			if (currentPhase != DashPhase.resting) {
+				currentPhase = DashPhase.unlockedDash; 
+			}
 		}
 
 
