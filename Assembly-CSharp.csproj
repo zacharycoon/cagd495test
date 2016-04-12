@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Components\Dash.cs" />
      <Compile Include="Assets\Scripts\Components\Jumping.cs" />
      <Compile Include="Assets\Scripts\Components\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Components\RelicManager.cs" />
      <Compile Include="Assets\Scripts\Components\StatesBase.cs" />
      <Compile Include="Assets\Scripts\Components\WallGrab.cs" />
      <Compile Include="Assets\Scripts\Misc\HideSprite.cs" />

@@ -18,23 +18,26 @@ namespace Assets.Scripts.Character
 			}
 		}
 		Components.PlayerMovement _movement;
-
+		Components.RelicManager _relics;
 
 
 		float playerDirection;
 
 		void Awake(){
 			_movement = gameObject.AddComponent<Components.PlayerMovement> ();
-
+			_relics = gameObject.AddComponent<Components.RelicManager> ();
 		}
 
 		void Update(){
 			GetInput ();
 			_movement.MovePlayer (playerDirection);
 			_movement.WallGrab ();
+			//_movement.DashHandler (playerDirection);
 
 		}
-
+		void FixedUpdate(){
+			_relics.AbilityManager ();
+		}
 
 			void GetInput() //gets input to be used in the manageInput function, subject to be removed once a input manager is implemeted
 			{

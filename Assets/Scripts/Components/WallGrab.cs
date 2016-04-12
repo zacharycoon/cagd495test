@@ -31,7 +31,7 @@ namespace Assets.Scripts.Components
 						PlayerMovement.moveVector = new Vector2 (0, wallDrag);
 						PlayerMovement.verticleSpeed = 0f;
 					} else {
-						Debug.Log ("fuckin shit");
+
 							//	PlayerMovement.moveVector = new Vector2 ((wallBuffer * -1f), PlayerMovement.verticleSpeed);	
 						transform.localPosition = new Vector3(transform.position.x + (wallBuffer *-1), transform.position.y, transform.position.z);
 										PlayerMovement.overrideInput = false;	
