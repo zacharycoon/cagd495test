@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Misc\SetSection.cs" />
      <Compile Include="Assets\Scripts\Relics\RelicGUI.cs" />
      <Compile Include="Assets\Scripts\Relics\Relics.cs" />
+     <Compile Include="Assets\Scripts\Relics\UpgradeRelic.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

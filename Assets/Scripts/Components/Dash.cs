@@ -21,8 +21,8 @@ namespace Assets.Scripts.Components
 		bool Dashing;
 		bool facingRight = true;
 		float dashDir;
-		float lockedDashDur = 0f;
-		public DashPhase currentPhase;
+		float lockedDashDur = 0.5f;
+		DashPhase currentPhase;
 
 		public void ManageDashing(bool grounded, float playerDir){
 			if (!canDash) {
