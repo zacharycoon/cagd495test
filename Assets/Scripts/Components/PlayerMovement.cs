@@ -13,12 +13,13 @@ namespace Assets.Scripts.Components
 	
 		CharacterController charCont;
 
+		bool waitForJump;
 		public static bool applyGravity = true;
 		public static bool overrideInput = false;
 		float walled;
 		public static float verticleSpeed;
 		public static float normalSpeed = 15f;
-		public static float boostedSpeed = 25f;
+		public static float boostedSpeed = 30f;
 		public static float speed = 15f;
 		public static Vector2 moveVector;
 		public static float playerDir;
@@ -42,19 +43,23 @@ namespace Assets.Scripts.Components
 		public void MovePlayer(float playerDirection){
 			grounded = charCont.isGrounded;
 			playerDir = playerDirection;
-
+			Debug.Log (overrideInput);
 			_dash.ManageDashing (grounded, playerDir);
 
-			if ((grounded || (walled != 0f))&& applyGravity) {
-				_dash.ResetDashing ();
-			}
+
 			if (walled !=0) {
 				_dash.OverrideDash ();
 			}
 
+			if (!grounded && !checkforwalls) {
+				checkforwalls = true;
+			}
+
 			if (applyGravity) {
 				if (grounded) {
-					
+					Dash.canDash = true;
+					_dash.OverrideDash ();
+					_dash.ResetDashing ();
 					_jump.resetJumps ();
 					verticleSpeed = -0.1f;
 					checkforwalls = false;
@@ -78,7 +83,7 @@ namespace Assets.Scripts.Components
 		public void JumpPlayer(float Direction){
 			if (walled != 0) {
 				_jump.WallJump (Direction, walled);
-
+			
 				return;
 			} else {
 				if (grounded) {
@@ -93,7 +98,7 @@ namespace Assets.Scripts.Components
 		}
 
 		public void WallGrab(){
-			if (checkforwalls&& !grounded) {
+			if (checkforwalls && !grounded) {
 
 				walled = _wallGrab.WallSlide (playerDir);
 			}
@@ -101,6 +106,9 @@ namespace Assets.Scripts.Components
 		}
 
 		public void DashPlayer(){
+			if (walled != 0) {
+				return;
+			}
 			if (grounded) {
 				StartCoroutine ("GroundDash");
 			}
@@ -116,12 +124,14 @@ namespace Assets.Scripts.Components
 		}
 
 		IEnumerator groundJump(){
+			waitForJump = true;
 			applyGravity = false;
 			_jump.BasicJump ();
-			yield return new WaitForSeconds (0.1f);
+			yield return new WaitForSeconds (0.01f);
 			applyGravity = true;
-			yield return new WaitForSeconds (0.05f);
-			checkforwalls = true;
+			yield return new WaitForSeconds (0.15f);
+			waitForJump = false;
+
 
 
 		}

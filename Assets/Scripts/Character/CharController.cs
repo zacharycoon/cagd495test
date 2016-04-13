@@ -19,13 +19,14 @@ namespace Assets.Scripts.Character
 		}
 		Components.PlayerMovement _movement;
 		Components.RelicManager _relics;
-
+		Components.Slash _slash;
 
 		float playerDirection;
 
 		void Awake(){
 			_movement = gameObject.AddComponent<Components.PlayerMovement> ();
 			_relics = gameObject.AddComponent<Components.RelicManager> ();
+			_slash = gameObject.AddComponent<Components.Slash> ();
 		}
 
 		void Update(){
@@ -67,6 +68,10 @@ namespace Assets.Scripts.Character
 					if(Input.GetButtonDown("Fire2")){
 				_movement.DashPlayer();
 				} 
+
+			if (Input.GetButtonDown ("Fire3")) {
+				
+			}
 
 
 

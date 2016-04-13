@@ -16,13 +16,13 @@ namespace Assets.Scripts.Components
 		public static bool canDash = false;
 		float dashGrav;
 		float dashPhase = 0f;
-		float dashSpeedIncrease = 50f;
-		float dashJumpHeight = 20f;
+		float dashSpeedIncrease = 30f;
+		float dashJumpHeight = 12f;
 		bool Dashing;
 		bool facingRight = true;
 		float dashDir;
 		float lockedDashDur = 0.5f;
-		DashPhase currentPhase;
+		public DashPhase currentPhase;
 
 		public void ManageDashing(bool grounded, float playerDir){
 			if (!canDash) {
@@ -81,7 +81,7 @@ namespace Assets.Scripts.Components
 		public void ResetDashing(){
 			//dashPhase = 0f;
 			if (currentPhase == DashPhase.resting) {
-				return;
+			//	return;
 			}
 			currentPhase = DashPhase.resting;
 			PlayerMovement.overrideInput = false;
@@ -94,16 +94,20 @@ namespace Assets.Scripts.Components
 			}
 
 			if (currentPhase == DashPhase.resting) {
-
+				canDash = false;
 				currentPhase = DashPhase.startingLock;
 
 			}
 		}
 
 		public void OverrideDash(){
-		//	if (currentPhase == DashPhase.resting) {
-		//		return;
-		//	}
+			if (currentPhase == DashPhase.resting) {
+				return;
+			}
+
+			PlayerMovement.overrideInput = false;
+
+			PlayerMovement.speed = PlayerMovement.normalSpeed;
 			currentPhase = DashPhase.resting;
 
 		}

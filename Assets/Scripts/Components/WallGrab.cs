@@ -10,9 +10,9 @@ namespace Assets.Scripts.Components
 	//	public LayerMask whatisWall = LayerMask.NameToLayer("Wall");
 		int whatisWall = 1 << 8; //for some reason this assigns the raycast to look for the 8th layer mask, which should be "Wall"
 								//if your "Wall" layer is not your 8th layer, you're in for some serious shit
-		float wallBuffer = 0.2f;
+		float wallBuffer = 0.05f;
 
-		float wallDrag = -1f;
+		float wallDrag = -2f;
 		bool jumpBuffer, walled;
 
 
@@ -20,6 +20,7 @@ namespace Assets.Scripts.Components
 
 		public float WallSlide(float playerDir) //handles both wall sliding and wall jumping
 		{
+			
 			float wallDir = castRays ();
 
 			if (wallDir != 0) {
