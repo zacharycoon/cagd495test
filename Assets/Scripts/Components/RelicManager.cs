@@ -38,7 +38,7 @@ namespace Assets.Scripts.Components
 			}
 		}
 		public void ToggleSlash (bool setTo){
-			slashRelic = setTo;
+			Slash.canSlash = setTo;
 		}
 
 		public void AbilityManager(){
@@ -46,6 +46,7 @@ namespace Assets.Scripts.Components
 			ToggleJump(jumpRelic);
 			ToggleWallJump (wallJumpRelic);
 			ToggleDash (dashRelic);
+			ToggleSlash (slashRelic);
 
 		}
 

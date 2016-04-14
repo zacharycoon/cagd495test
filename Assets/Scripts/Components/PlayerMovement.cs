@@ -43,7 +43,6 @@ namespace Assets.Scripts.Components
 		public void MovePlayer(float playerDirection){
 			grounded = charCont.isGrounded;
 			playerDir = playerDirection;
-			Debug.Log (overrideInput);
 			_dash.ManageDashing (grounded, playerDir);
 
 

@@ -8,6 +8,7 @@ namespace Assets.Scripts.Components
 	public class Jumping: CustomComponentBase {
 
 		float jumpHeight = 20f;
+		public float wallJumpHeight = 25f;
 		float jumpStage = 0f;
 		public static float maxJumps = 1;
 		public static float maxWallJumps = 999f;
@@ -106,6 +107,8 @@ namespace Assets.Scripts.Components
 			direction = wallJumpDir; //we feed walljumping into player direction so we get the direction of the wall jump
 			PlayerMovement.moveVector = new Vector2 (wallJumpx * wallJumpDir * (-1), PlayerMovement.verticleSpeed + wallJumpy);
 			yield return new WaitForSeconds (timeToMidApex); //this timer takes us to the mid apex of the jump, then we check if we should continue jumping or jump back to the wall
+
+			/*
 			if (direction == 1) { 
 				if (PlayerMovement.playerDir > 0) { //if the player jumped on a right wall and is inputting right WHILE at the apex point
 
@@ -137,10 +140,12 @@ namespace Assets.Scripts.Components
 			//if we were not holding the key in the direction of the wall we were just on: 
 			PlayerMovement.moveVector = new Vector2 (wallJumpx * wallJumpDir * (-1), PlayerMovement.verticleSpeed);
 			yield return new WaitForSeconds(timeToApex); //wait for how long to reach the total apex
+			*/
 			PlayerMovement.overrideInput = false;
+			PlayerMovement.verticleSpeed = wallJumpHeight;
 			//PlayerMovement.verticleSpeed = 0f;
 			wallJumpDir = 0f; //once we reach the total apex, we are no longer in the middle of wall jumping
-			wallJumpy = realWallJumpy; //since we modified walljumpY, reset it
+			//wallJumpy = realWallJumpy; //since we modified walljumpY, reset it
 
 		}
 

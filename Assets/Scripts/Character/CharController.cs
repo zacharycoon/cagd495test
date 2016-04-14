@@ -20,13 +20,15 @@ namespace Assets.Scripts.Character
 		Components.PlayerMovement _movement;
 		Components.RelicManager _relics;
 		Components.Slash _slash;
+		Components.Health _health;
 
 		float playerDirection;
-
+		float lastDir =1f;
 		void Awake(){
 			_movement = gameObject.AddComponent<Components.PlayerMovement> ();
 			_relics = gameObject.AddComponent<Components.RelicManager> ();
 			_slash = gameObject.AddComponent<Components.Slash> ();
+			_health = gameObject.AddComponent<Components.Health> ();
 		}
 
 		void Update(){
@@ -49,9 +51,11 @@ namespace Assets.Scripts.Character
 			if (Mathf.Abs (horzInput) > 0.15f) {
 				if (horzInput > 0) {
 					playerDirection = 1f;
+					lastDir = 1f;
 				}
 				if (horzInput < 0) {
 					playerDirection = -1f;
+					lastDir = -1f;
 				}
 			} else {
 				playerDirection = 0f;
@@ -70,9 +74,9 @@ namespace Assets.Scripts.Character
 				} 
 
 			if (Input.GetButtonDown ("Fire3")) {
-				
+				_slash.SlashAttack (lastDir);
 			}
-
+		
 
 
 

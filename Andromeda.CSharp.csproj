@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -83,6 +77,7 @@
     <Compile Include="Assets\Scripts\Components\Jumping.cs" />
     <Compile Include="Assets\Scripts\Components\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Components\RelicManager.cs" />
+    <Compile Include="Assets\Scripts\Components\Slash.cs" />
     <Compile Include="Assets\Scripts\Components\StatesBase.cs" />
     <Compile Include="Assets\Scripts\Components\WallGrab.cs" />
     <Compile Include="Assets\Scripts\Misc\HideSprite.cs" />
@@ -90,6 +85,7 @@
     <Compile Include="Assets\Scripts\Misc\SetSection.cs" />
     <Compile Include="Assets\Scripts\Relics\RelicGUI.cs" />
     <Compile Include="Assets\Scripts\Relics\Relics.cs" />
+    <Compile Include="Assets\Scripts\Relics\UpgradeRelic.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

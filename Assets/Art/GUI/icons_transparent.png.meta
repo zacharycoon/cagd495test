@@ -1,0 +1,137 @@
+fileFormatVersion: 2
+guid: 1a831d039aebdf94aa7d3cf10bdc184d
+timeCreated: 1460675471
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: icons_transparent_0
+    21300002: icons_transparent_1
+    21300004: icons_transparent_2
+    21300006: icons_transparent_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: icons_transparent_0
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 357
+        width: 156
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -70, y: 77.5}
+        - {x: -78, y: 70.5}
+        - {x: -78, y: -67.5}
+        - {x: -71, y: -77.5}
+        - {x: 71, y: -77.5}
+        - {x: 78, y: -69.5}
+        - {x: 78, y: 71.5}
+        - {x: 69, y: 77.5}
+    - name: icons_transparent_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 175
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -72.5, y: 77.5}
+        - {x: -77.5, y: 69.5}
+        - {x: -77.5, y: -69.5}
+        - {x: -72.5, y: -77.5}
+        - {x: 71.5, y: -77.5}
+        - {x: 77.5, y: -73.5}
+        - {x: 77.5, y: 70.5}
+        - {x: 69.5, y: 77.5}
+    - name: icons_transparent_2
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 178
+        width: 155
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -72.5, y: 78}
+        - {x: -77.5, y: 69}
+        - {x: -77.5, y: -69}
+        - {x: -72.5, y: -78}
+        - {x: 72.5, y: -78}
+        - {x: 77.5, y: -74}
+        - {x: 77.5, y: 72}
+        - {x: 71.5, y: 78}
+    - name: icons_transparent_3
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 0
+        width: 156
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -72, y: 77.5}
+        - {x: -78, y: 72.5}
+        - {x: -78, y: -70.5}
+        - {x: -70, y: -77.5}
+        - {x: 70, y: -77.5}
+        - {x: 78, y: -70.5}
+        - {x: 78, y: 72.5}
+        - {x: 72, y: 77.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
