@@ -32,9 +32,9 @@ namespace Assets.Scripts.Components
 		}
 		public void ToggleDash (bool setTo){
 			if (setTo) {
-				Dash.canDash = true;
+				Dash.DashUnlocked = true;
 			} else {
-				Dash.canDash = false;
+				Dash.DashUnlocked = false;
 			}
 		}
 		public void ToggleSlash (bool setTo){

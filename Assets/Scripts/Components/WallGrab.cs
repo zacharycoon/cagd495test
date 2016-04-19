@@ -12,7 +12,7 @@ namespace Assets.Scripts.Components
 								//if your "Wall" layer is not your 8th layer, you're in for some serious shit
 		float wallBuffer = 0.05f;
 
-		float wallDrag = -2f;
+		float wallDrag = -1.5f;
 		bool jumpBuffer, walled;
 
 

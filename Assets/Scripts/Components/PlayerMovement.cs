@@ -21,11 +21,15 @@ namespace Assets.Scripts.Components
 		public static float normalSpeed = 15f;
 		public static float boostedSpeed = 30f;
 		public static float speed = 15f;
+		float jumpHeight = 20f;
+		public float dashJump;
 		public static Vector2 moveVector;
 		public static float playerDir;
 		public float gravity = 80f;
-		bool grounded;
+		public bool grounded;
 		bool checkforwalls;
+		bool checkforground = true;
+
 		// Use this for initialization
 		void Awake () {
 			_jump = gameObject.AddComponent<Jumping> ();
@@ -41,25 +45,35 @@ namespace Assets.Scripts.Components
 
 
 		public void MovePlayer(float playerDirection){
-			grounded = charCont.isGrounded;
+			Debug.Log (applyGravity);
+
+			if (checkforground) {
+				grounded = charCont.isGrounded;
+			} else {
+				grounded = false;
+			}
 			playerDir = playerDirection;
 			_dash.ManageDashing (grounded, playerDir);
 
+			if (grounded) {
+				_jump.resetJumps ();
+
+			}
 
 			if (walled !=0) {
+
 				_dash.OverrideDash ();
 			}
 
 			if (!grounded && !checkforwalls) {
-				checkforwalls = true;
+				//checkforwalls = true;
 			}
 
 			if (applyGravity) {
 				if (grounded) {
-					Dash.canDash = true;
 					_dash.OverrideDash ();
 					_dash.ResetDashing ();
-					_jump.resetJumps ();
+				
 					verticleSpeed = -0.1f;
 					checkforwalls = false;
 				}
@@ -80,16 +94,17 @@ namespace Assets.Scripts.Components
 
 	
 		public void JumpPlayer(float Direction){
-			if (walled != 0) {
+			if ((walled != 0)&&!grounded) {
 				_jump.WallJump (Direction, walled);
 			
 				return;
 			} else {
 				if (grounded) {
 					StartCoroutine ("groundJump");
+					Debug.Log ("fuck");
 					return;
 				}
-				_jump.BasicJump ();
+				_jump.BasicJump (jumpHeight);
 			
 				return;
 			}
@@ -110,25 +125,35 @@ namespace Assets.Scripts.Components
 			}
 			if (grounded) {
 				StartCoroutine ("GroundDash");
+				_dash.StartDashing (playerDir);
+				return;
 			}
+			//_jump.BasicJump (dashJump);
 			_dash.StartDashing (playerDir);
 		}
 	
 		IEnumerator GroundDash(){
 			applyGravity = false;
-			_dash.StartDashing (playerDir);
+			waitForJump = true;
+			checkforground = false;
+			//_jump.BasicJump (dashJump);
+
 			yield return new WaitForSeconds (0.1f);
 			checkforwalls = true;
+			checkforground = true;
+			waitForJump = false;
 			applyGravity = true;
 		}
 
 		IEnumerator groundJump(){
+			checkforwalls = false;
 			waitForJump = true;
 			applyGravity = false;
-			_jump.BasicJump ();
+			_jump.BasicJump (jumpHeight);
 			yield return new WaitForSeconds (0.01f);
 			applyGravity = true;
 			yield return new WaitForSeconds (0.15f);
+			checkforwalls = true;
 			waitForJump = false;
 
 

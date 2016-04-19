@@ -13,11 +13,12 @@ namespace Assets.Scripts.Components
 			lockedDash,
 			unlockedDash
 		}
-		public static bool canDash = false;
+		public static bool DashUnlocked = false;
+		public bool canDash;
 		float dashGrav;
 		float dashPhase = 0f;
 		float dashSpeedIncrease = 30f;
-		float dashJumpHeight = 12f;
+		float dashJumpHeight = 15f;
 		bool Dashing;
 		bool facingRight = true;
 		float dashDir;
@@ -25,9 +26,10 @@ namespace Assets.Scripts.Components
 		public DashPhase currentPhase;
 
 		public void ManageDashing(bool grounded, float playerDir){
-			if (!canDash) {
+			if (!DashUnlocked) {
 				return;
 			}
+
 
 			if (playerDir == 1) {
 				facingRight = true;
@@ -36,6 +38,10 @@ namespace Assets.Scripts.Components
 				facingRight = false;
 			}
 
+			if (grounded) {
+				
+				ResetDashing ();
+			}
 
 			if (currentPhase == DashPhase.resting) { //dashPhase handles which stage of dashing I am in, with 0 being not dashing at all
 
@@ -57,6 +63,7 @@ namespace Assets.Scripts.Components
 
 				//StartCoroutine ("SetBoost"); //dashing speed is reset upon touching the ground, set boost prevents 
 				PlayerMovement.verticleSpeed = dashJumpHeight; //the ground check from checking if we are grounded until a small amount of time has passed
+				Debug.Log(PlayerMovement.verticleSpeed);
 				PlayerMovement.speed = dashSpeedIncrease; //speed up the character to boosted speed 
 				PlayerMovement.moveVector = new Vector2(dashDir *dashSpeedIncrease, PlayerMovement.verticleSpeed);
 
@@ -80,19 +87,22 @@ namespace Assets.Scripts.Components
 		}
 		public void ResetDashing(){
 			//dashPhase = 0f;
+			canDash = true;
 			if (currentPhase == DashPhase.resting) {
 			//	return;
 			}
+
+			StopCoroutine ("SetDashing");
 			currentPhase = DashPhase.resting;
 			PlayerMovement.overrideInput = false;
 			PlayerMovement.speed = PlayerMovement.normalSpeed;
 		}
 
 		public void StartDashing(float playerDir){
-			if (!canDash) {
+			if (!canDash || (currentPhase != DashPhase.resting)) {
 				return;
 			}
-
+			Debug.Log ("fuck");
 			if (currentPhase == DashPhase.resting) {
 				canDash = false;
 				currentPhase = DashPhase.startingLock;

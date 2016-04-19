@@ -7,8 +7,8 @@ namespace Assets.Scripts.Components
 
 	public class Jumping: CustomComponentBase {
 
-		float jumpHeight = 20f;
-		public float wallJumpHeight = 25f;
+
+		public float wallJumpHeight = 20f;
 		float jumpStage = 0f;
 		public static float maxJumps = 1;
 		public static float maxWallJumps = 999f;
@@ -20,12 +20,12 @@ namespace Assets.Scripts.Components
 		float wallJumpx = 12f;
 		float wallJumpy = 20f;
 
-		float realWallJumpy = 30f;
+		float realWallJumpy = 12f;
 		float timeToApex  = 0.1f;
-		float timeToMidApex = 0.15f;
-		float timeBackToWall = 0.15f;
-		float wallMidJumpx = 8f;
-		float wallMidJumpy = 12f;
+		float timeToMidApex = 0.13f;
+		float timeBackToWall = 0.10f;
+		float wallMidJumpx = 6f;
+		float wallMidJumpy = 4f;
 
 		float direction;
 		private bool walled = false;
@@ -36,7 +36,7 @@ namespace Assets.Scripts.Components
 
 
 
-		public void BasicJump(){
+		public void BasicJump(float jumpHeight){
 
 			if (jumpStage < maxJumps) {
 				PlayerMovement.verticleSpeed = jumpHeight;
