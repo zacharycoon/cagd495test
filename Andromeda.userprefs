@@ -1,20 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Components\Slash.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\Timer.cs">
     <Files>
-      <File FileName="Assets\Scripts\Components\Jumping.cs" Line="145" Column="50" />
-      <File FileName="Assets\Scripts\Components\Slash.cs" Line="23" Column="5" />
-      <File FileName="Assets\Scripts\Relics\UpgradeRelic.cs" Line="3" Column="1" />
-      <File FileName="Assets\Scripts\Character\CharController.cs" Line="21" Column="19" />
-      <File FileName="Assets\Scripts\Components\RelicManager.cs" Line="41" Column="27" />
-      <File FileName="Assets\Scripts\Components\Dash.cs" Line="21" Column="16" />
-      <File FileName="Assets\Scripts\Components\WallGrab.cs" Line="15" Column="22" />
-      <File FileName="Assets\Scripts\Components\PlayerMovement.cs" Line="46" Column="44" />
-      <File FileName="Assets\Scripts\CharacterController\Movement.cs" Line="20" Column="37" />
-      <File FileName="Assets\Scripts\Components\Health.cs" Line="10" Column="31" />
-      <File FileName="Assets\Scripts\UI\Healthbar.cs" Line="8" Column="18" />
-      <File FileName="Assets\Scripts\Relics\CanDestroy.cs" Line="16" Column="15" />
-      <File FileName="Assets\Scripts\Relics\AbilityUIManager.cs" Line="19" Column="56" />
+      <File FileName="Assets\Scripts\Components\Dash.cs" Line="105" Column="5" />
+      <File FileName="Assets\Scripts\Character\CharController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Components\PlayerMovement.cs" Line="156" Column="25" />
+      <File FileName="Assets\Scripts\Components\RelicManager.cs" Line="35" Column="29" />
+      <File FileName="Assets\Scripts\Components\Jumping.cs" Line="93" Column="26" />
+      <File FileName="Assets\Scripts\Components\WallGrab.cs" Line="45" Column="61" />
+      <File FileName="Assets\Scripts\Relics\UpgradeRelic.cs" Line="32" Column="4" />
+      <File FileName="Assets\Scripts\Relics\AbilityUIManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\Timer.cs" Line="6" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

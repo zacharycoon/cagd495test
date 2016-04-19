@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Relics\Relics.cs" />
      <Compile Include="Assets\Scripts\Relics\UpgradeRelic.cs" />
      <Compile Include="Assets\Scripts\UI\Healthbar.cs" />
+     <Compile Include="Assets\Scripts\UI\Timer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

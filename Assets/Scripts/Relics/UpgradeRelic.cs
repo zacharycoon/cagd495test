@@ -11,6 +11,7 @@ public enum RelicType{
 
 public class UpgradeRelic : MonoBehaviour {
 	public RelicType UnlockWhichSkill;
+	public float parTime;
 
 	void OnTriggerEnter(Collider col){
 		if (col.gameObject.tag == "Player") {
@@ -28,10 +29,17 @@ public class UpgradeRelic : MonoBehaviour {
 				col.gameObject.GetComponent<RelicManager> ().slashRelic = true;
 			}
 
+			InvokeRepeating ("StartTimer", 0.1f, 0.1f);
+
+
 
 		}
 
 	}
 
+	void StartTimer(){
+		parTime -= 0.1f;
+
+	}
 
 }
