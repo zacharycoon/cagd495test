@@ -63,7 +63,7 @@ namespace Assets.Scripts.Components
 
 				//StartCoroutine ("SetBoost"); //dashing speed is reset upon touching the ground, set boost prevents 
 				PlayerMovement.verticleSpeed = dashJumpHeight; //the ground check from checking if we are grounded until a small amount of time has passed
-				Debug.Log(PlayerMovement.verticleSpeed);
+			
 				PlayerMovement.speed = dashSpeedIncrease; //speed up the character to boosted speed 
 				PlayerMovement.moveVector = new Vector2(dashDir *dashSpeedIncrease, PlayerMovement.verticleSpeed);
 
@@ -102,7 +102,7 @@ namespace Assets.Scripts.Components
 			if (!canDash || (currentPhase != DashPhase.resting)) {
 				return;
 			}
-			Debug.Log ("fuck");
+	
 			if (currentPhase == DashPhase.resting) {
 				canDash = false;
 				currentPhase = DashPhase.startingLock;

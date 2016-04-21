@@ -9,7 +9,7 @@ namespace Assets.Scripts.Components
 
 
 		public float wallJumpHeight = 20f;
-		float jumpStage = 0f;
+		public float jumpStage = 0f;
 		public static float maxJumps = 1;
 		public static float maxWallJumps = 999f;
 
@@ -91,12 +91,13 @@ namespace Assets.Scripts.Components
 		}
 
 		public void resetJumps(){
-		//	if (jumpStage == 0 && wallJumps == 0) {
-		//		return;
-		//	} else {
+			wallJumps = 0;
+			if (jumpStage == 0) {
+				return;
+			} else {
 				jumpStage = 0;
-				wallJumps = 0;
-		//	}
+
+			}
 		}
 
 

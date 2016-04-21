@@ -1,16 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\Timer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Components\Health.cs">
     <Files>
-      <File FileName="Assets\Scripts\Components\Dash.cs" Line="105" Column="5" />
-      <File FileName="Assets\Scripts\Character\CharController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Components\PlayerMovement.cs" Line="156" Column="25" />
+      <File FileName="Assets\Scripts\UI\Timer.cs" Line="29" Column="3" />
+      <File FileName="Assets\Scripts\Components\Dash.cs" Line="66" Column="4" />
+      <File FileName="Assets\Scripts\Character\CharController.cs" Line="33" Column="1" />
+      <File FileName="Assets\Scripts\Components\PlayerMovement.cs" Line="158" Column="44" />
       <File FileName="Assets\Scripts\Components\RelicManager.cs" Line="35" Column="29" />
-      <File FileName="Assets\Scripts\Components\Jumping.cs" Line="93" Column="26" />
-      <File FileName="Assets\Scripts\Components\WallGrab.cs" Line="45" Column="61" />
-      <File FileName="Assets\Scripts\Relics\UpgradeRelic.cs" Line="32" Column="4" />
+      <File FileName="Assets\Scripts\Components\Jumping.cs" Line="24" Column="1" />
+      <File FileName="Assets\Scripts\Components\WallGrab.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Relics\UpgradeRelic.cs" Line="32" Column="50" />
       <File FileName="Assets\Scripts\Relics\AbilityUIManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\Timer.cs" Line="6" Column="2" />
+      <File FileName="Assets\Scripts\UI\Healthbar.cs" Line="15" Column="32" />
+      <File FileName="Assets\Scripts\Components\Health.cs" Line="34" Column="35" />
+      <File FileName="Assets\Scripts\Misc\DealDamage.cs" Line="7" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

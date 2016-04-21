@@ -27,7 +27,7 @@ namespace Assets.Scripts.Components
 		public static float playerDir;
 		public float gravity = 80f;
 		public bool grounded;
-		bool checkforwalls;
+		public bool checkforwalls;
 		bool checkforground = true;
 
 		// Use this for initialization
@@ -45,7 +45,7 @@ namespace Assets.Scripts.Components
 
 
 		public void MovePlayer(float playerDirection){
-			Debug.Log (applyGravity);
+			
 
 			if (checkforground) {
 				grounded = charCont.isGrounded;
@@ -55,9 +55,9 @@ namespace Assets.Scripts.Components
 			playerDir = playerDirection;
 			_dash.ManageDashing (grounded, playerDir);
 
-			if (grounded) {
+			if (grounded && !waitForJump) {
 				_jump.resetJumps ();
-
+			
 			}
 
 			if (walled !=0) {
@@ -80,6 +80,10 @@ namespace Assets.Scripts.Components
 				if (!grounded) {
 					verticleSpeed -= gravity * Time.deltaTime;
 				}
+				if (!waitForJump) {
+					checkforwalls = true;
+
+				}
 			}
 
 		
@@ -101,7 +105,7 @@ namespace Assets.Scripts.Components
 			} else {
 				if (grounded) {
 					StartCoroutine ("groundJump");
-					Debug.Log ("fuck");
+
 					return;
 				}
 				_jump.BasicJump (jumpHeight);
@@ -149,6 +153,7 @@ namespace Assets.Scripts.Components
 			checkforwalls = false;
 			waitForJump = true;
 			applyGravity = false;
+		
 			_jump.BasicJump (jumpHeight);
 			yield return new WaitForSeconds (0.01f);
 			applyGravity = true;

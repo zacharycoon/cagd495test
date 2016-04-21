@@ -29,7 +29,9 @@ public class UpgradeRelic : MonoBehaviour {
 				col.gameObject.GetComponent<RelicManager> ().slashRelic = true;
 			}
 
-			InvokeRepeating ("StartTimer", 0.1f, 0.1f);
+			GameObject.FindGameObjectWithTag("StartPoint").GetComponent<Timer> ().StartTime (parTime);
+
+		
 
 
 
@@ -37,9 +39,6 @@ public class UpgradeRelic : MonoBehaviour {
 
 	}
 
-	void StartTimer(){
-		parTime -= 0.1f;
 
-	}
 
 }

@@ -29,6 +29,7 @@ namespace Assets.Scripts.Character
 			_relics = gameObject.AddComponent<Components.RelicManager> ();
 			_slash = gameObject.AddComponent<Components.Slash> ();
 			_health = gameObject.AddComponent<Components.Health> ();
+			_health.TotalStuff ();
 		}
 
 		void Update(){
