@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour {
 	static public bool getTrans = false;     
 	public float smoothRate;
 
-	public Transform player;
+	 Transform player;
 
 	private Transform thisTransform;
 	private Vector2 velocity;

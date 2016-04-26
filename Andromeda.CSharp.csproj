@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Components\Slash.cs" />
     <Compile Include="Assets\Scripts\Components\StatesBase.cs" />
     <Compile Include="Assets\Scripts\Components\WallGrab.cs" />
+    <Compile Include="Assets\Scripts\Misc\DealDamage.cs" />
     <Compile Include="Assets\Scripts\Misc\HideSprite.cs" />
     <Compile Include="Assets\Scripts\Misc\Projectile.cs" />
     <Compile Include="Assets\Scripts\Misc\SetSection.cs" />

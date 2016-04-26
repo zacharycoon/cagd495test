@@ -22,7 +22,7 @@ namespace Assets.Scripts.Components
 		{
 			
 			float wallDir = castRays ();
-			Debug.Log (wallDir);
+
 			if (wallDir != 0) {
 				
 				if (wallDir == 1) {

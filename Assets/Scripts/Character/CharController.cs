@@ -67,6 +67,7 @@ namespace Assets.Scripts.Character
 					if(Input.GetButtonDown("Fire1"))
 				{
 				_movement.JumpPlayer(playerDirection);
+			
 				}
 			
 				//if (Input.GetKeyDown (KeyCode.LeftShift)) {

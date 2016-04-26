@@ -21,7 +21,7 @@ namespace Assets.Scripts.Components
 		public static float normalSpeed = 15f;
 		public static float boostedSpeed = 30f;
 		public static float speed = 15f;
-		float jumpHeight = 20f;
+		public float jumpHeight = 28.5f;
 		public float dashJump;
 		public static Vector2 moveVector;
 		public static float playerDir;
@@ -29,6 +29,9 @@ namespace Assets.Scripts.Components
 		public bool grounded;
 		public bool checkforwalls;
 		bool checkforground = true;
+		public float upRayLength = 0.9f;
+		public float ceilingHitSpeed = -1f;
+		int celingmask = 1 << 8;
 
 		// Use this for initialization
 		void Awake () {
@@ -68,12 +71,16 @@ namespace Assets.Scripts.Components
 			if (!grounded && !checkforwalls) {
 				//checkforwalls = true;
 			}
+			if (grounded) {
+				_dash.OverrideDash ();
+				_dash.ResetDashing ();
+			}
+
 
 			if (applyGravity) {
 				if (grounded) {
-					_dash.OverrideDash ();
-					_dash.ResetDashing ();
-				
+
+
 					verticleSpeed = -0.1f;
 					checkforwalls = false;
 				}
@@ -86,7 +93,7 @@ namespace Assets.Scripts.Components
 				}
 			}
 
-		
+			Upray ();
 			if(!overrideInput){
 		
 				moveVector = new Vector2 (playerDirection * speed, verticleSpeed); //calculate movement in the x and y 
@@ -98,19 +105,20 @@ namespace Assets.Scripts.Components
 
 	
 		public void JumpPlayer(float Direction){
+			Debug.Log (grounded);
 			if ((walled != 0)&&!grounded) {
 				_jump.WallJump (Direction, walled);
-			
+
 				return;
 			} else {
-				if (grounded) {
+			//	if (grounded) {
 					StartCoroutine ("groundJump");
-
+					
 					return;
-				}
-				_jump.BasicJump (jumpHeight);
-			
-				return;
+			//	}
+			//	_jump.BasicJump (jumpHeight);
+			//	print ("goddammit");
+			//	return;
 			}
 		
 		}
@@ -128,15 +136,26 @@ namespace Assets.Scripts.Components
 			if (walled != 0) {
 				return;
 			}
-			if (grounded) {
+		//	if (grounded) {
 				StartCoroutine ("GroundDash");
 				_dash.StartDashing (playerDir);
 				return;
-			}
+		//	}
 			//_jump.BasicJump (dashJump);
-			_dash.StartDashing (playerDir);
+		//	_dash.StartDashing (playerDir);
 		}
 	
+
+		public void Upray(){
+
+			//Ray UpRay = new Ray (transform.position , transform.up); 
+			if(Physics.Raycast(transform.position, transform.up, upRayLength, celingmask)){
+				Debug.Log ("fuck");
+				verticleSpeed = ceilingHitSpeed;
+			}
+		}
+
+
 		IEnumerator GroundDash(){
 			applyGravity = false;
 			waitForJump = true;
@@ -153,14 +172,18 @@ namespace Assets.Scripts.Components
 		IEnumerator groundJump(){
 			checkforwalls = false;
 			waitForJump = true;
-			applyGravity = false;
+			checkforground = false;
+			//applyGravity = false;
 		
 			_jump.BasicJump (jumpHeight);
-			yield return new WaitForSeconds (0.01f);
-			applyGravity = true;
-			yield return new WaitForSeconds (0.15f);
-			checkforwalls = true;
+			yield return new WaitForSeconds (0.05f);
+
+			checkforground = true;
+			//applyGravity = true;
 			waitForJump = false;
+		//	yield return new WaitForSeconds (0.1f);
+			checkforwalls = true;
+		
 
 
 
