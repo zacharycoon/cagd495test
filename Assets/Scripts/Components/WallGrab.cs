@@ -22,35 +22,43 @@ namespace Assets.Scripts.Components
 		{
 			
 			float wallDir = castRays ();
-
+			Debug.Log (wallDir);
 			if (wallDir != 0) {
 				
 				if (wallDir == 1) {
 					if (playerDir == 1) {
-	
-						PlayerMovement.overrideInput = true;	
-						PlayerMovement.moveVector = new Vector2 (0, wallDrag);
-						PlayerMovement.verticleSpeed = 0f;
+						
+						//PlayerMovement.overrideInput = true;	
+						//PlayerMovement.moveVector = new Vector2 (0, wallDrag);
+						//PlayerMovement.verticleSpeed = 0f;
+						PlayerMovement.verticleSpeed = wallDrag;
+
+						//walled = true;
 					} else {
 
-							//	PlayerMovement.moveVector = new Vector2 ((wallBuffer * -1f), PlayerMovement.verticleSpeed);	
-						transform.localPosition = new Vector3(transform.position.x + (wallBuffer *-1), transform.position.y, transform.position.z);
-										PlayerMovement.overrideInput = false;	
+						//	PlayerMovement.moveVector = new Vector2 ((wallBuffer * -1f), PlayerMovement.verticleSpeed);	
+						transform.localPosition = new Vector3 (transform.position.x + (wallBuffer * -1), transform.position.y, transform.position.z);
+						PlayerMovement.overrideInput = false;	
 					}
 				}
 				if (wallDir == -1) {
 					if (playerDir == -1) {
 	
-						PlayerMovement.overrideInput = true;	
-						PlayerMovement.moveVector = new Vector2 (0, wallDrag);
-						PlayerMovement.verticleSpeed = 0f;
+						//PlayerMovement.overrideInput = true;	
+						//PlayerMovement.moveVector = new Vector2 (0, wallDrag);
+						PlayerMovement.verticleSpeed = wallDrag;
+						//walled = true;
 					} else {
 	
 						//	PlayerMovement.moveVector = new Vector2 ((wallBuffer * -1f), PlayerMovement.verticleSpeed);	
-						transform.localPosition = new Vector3(transform.position.x + (wallBuffer), transform.position.y, transform.position.z);
+						transform.localPosition = new Vector3 (transform.position.x + (wallBuffer), transform.position.y, transform.position.z);
 						PlayerMovement.overrideInput = false;	
 					}
 				}
+			} else if (walled && wallDir == 0){
+				//walled = false;
+				//PlayerMovement.overrideInput = false;
+
 			}
 
 

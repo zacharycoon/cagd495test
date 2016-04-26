@@ -119,6 +119,7 @@ namespace Assets.Scripts.Components
 			if (checkforwalls && !grounded) {
 
 				walled = _wallGrab.WallSlide (playerDir);
+				//Debug.Log (walled);
 			}
 			
 		}
