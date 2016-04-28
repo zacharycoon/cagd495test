@@ -21,6 +21,7 @@ namespace Assets.Scripts.Components
 		public static float normalSpeed = 15f;
 		public static float boostedSpeed = 30f;
 		public static float speed = 15f;
+		public static float speedModifier = 1f;
 		public float jumpHeight = 28.5f;
 		public float dashJump;
 		public static Vector2 moveVector;
@@ -32,7 +33,7 @@ namespace Assets.Scripts.Components
 		public float upRayLength = 0.9f;
 		public float ceilingHitSpeed = -1f;
 		int celingmask = 1 << 8;
-
+		int movingGround = 1 << 9;
 		// Use this for initialization
 		void Awake () {
 			_jump = gameObject.AddComponent<Jumping> ();
@@ -48,7 +49,19 @@ namespace Assets.Scripts.Components
 
 
 		public void MovePlayer(float playerDirection){
-			
+
+			RaycastHit hit;
+			Ray downRay = new Ray (transform.position, -Vector3.up); 
+			if (Physics.Raycast (downRay, out hit, 1f)) {
+				if (hit.transform.gameObject.layer == 9) {
+					Debug.Log ("something else");
+					this.gameObject.transform.SetParent (hit.transform);
+				} else {
+					this.gameObject.transform.SetParent (null);
+				}
+			} else {
+				this.gameObject.transform.SetParent (null);
+			}
 
 			if (checkforground) {
 				grounded = charCont.isGrounded;
@@ -96,7 +109,8 @@ namespace Assets.Scripts.Components
 			Upray ();
 			if(!overrideInput){
 		
-				moveVector = new Vector2 (playerDirection * speed, verticleSpeed); //calculate movement in the x and y 
+				moveVector = new Vector2 (playerDirection * speed* speedModifier, verticleSpeed); //calculate movement in the x and y 
+			
 			}
 		
 			charCont.Move (moveVector * Time.deltaTime); //apply movement in the x and y
@@ -105,7 +119,6 @@ namespace Assets.Scripts.Components
 
 	
 		public void JumpPlayer(float Direction){
-			Debug.Log (grounded);
 			if ((walled != 0)&&!grounded) {
 				_jump.WallJump (Direction, walled);
 
@@ -150,7 +163,7 @@ namespace Assets.Scripts.Components
 
 			//Ray UpRay = new Ray (transform.position , transform.up); 
 			if(Physics.Raycast(transform.position, transform.up, upRayLength, celingmask)){
-				Debug.Log ("fuck");
+			Debug.Log ("fuck");
 				verticleSpeed = ceilingHitSpeed;
 			}
 		}

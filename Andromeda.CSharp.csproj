@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Camera\ChangeCamera.cs" />
+    <Compile Include="Assets\Scripts\Camera\_Camera.cs" />
     <Compile Include="Assets\Scripts\Character\CharController.cs" />
     <Compile Include="Assets\Scripts\Character\CharStates.cs" />
     <Compile Include="Assets\Scripts\CharacterController\BasicAnim.cs" />

@@ -38,6 +38,10 @@ namespace Assets.Scripts.Components
 
 		}
 
+		public void Death(){
+			Debug.Log ("death things");
+		}
+
 
 	}
 }
