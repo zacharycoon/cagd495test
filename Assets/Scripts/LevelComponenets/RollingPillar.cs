@@ -3,11 +3,11 @@ using System.Collections;
 
 public class RollingPillar : MonoBehaviour {
 	public Transform StartPoint, endpoint;
-	public Rigidbody[] myChildren;
+	public RollingPillarBehavior[] myChildren;
 	public float speed;
 
 	void Start(){
-		myChildren = transform.gameObject.GetComponentsInChildren<Rigidbody> ();
+		myChildren = transform.gameObject.GetComponentsInChildren<RollingPillarBehavior> ();
 
 	}
 
@@ -16,7 +16,7 @@ public class RollingPillar : MonoBehaviour {
 			for (int childCol = 0; childCol < myChildren.Length; childCol++) {
 			//	Debug.Log ("fuck " + childCol);
 			//	myChildren [childCol].isKinematic = false;
-
+				myChildren[childCol].StartRolling = true;
 
 
 			}
