@@ -128,17 +128,11 @@
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.WindowsStandalone.Extensions">
- <HintPath>C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
- <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/2015/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
- </Reference>
  <Reference Include="ProBuilderCore-Unity5">
  <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
+ </Reference>
+ <Reference Include="ProBuilderMeshOps-Unity5">
+ <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="KDTree">
  <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ClassesLib/KDTree.dll</HintPath>
@@ -149,8 +143,11 @@
  <Reference Include="ProBuilderEditor-Unity5">
  <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Editor/ProBuilderEditor-Unity5.dll</HintPath>
  </Reference>
- <Reference Include="ProBuilderMeshOps-Unity5">
- <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

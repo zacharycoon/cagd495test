@@ -7,7 +7,7 @@ namespace Assets.Scripts.Components
 
 	public class Jumping: CustomComponentBase {
 
-
+		public bool JustwallJumped; // used for the destructable pillars
 		public float wallJumpHeight = 20f;
 		public float jumpStage = 0f;
 		public static float maxJumps = 1;
@@ -102,13 +102,13 @@ namespace Assets.Scripts.Components
 
 
 		IEnumerator wallJumpCD(){ //this is invoked when the player wall jumps
-			
+			JustwallJumped = true;
 			wallJumpy = realWallJumpy; //wallJumpy is modified when we jump, so we reset it at the start
 	
 			direction = wallJumpDir; //we feed walljumping into player direction so we get the direction of the wall jump
 			PlayerMovement.moveVector = new Vector2 (wallJumpx * wallJumpDir * (-1), PlayerMovement.verticleSpeed + wallJumpy);
 			yield return new WaitForSeconds (timeToMidApex); //this timer takes us to the mid apex of the jump, then we check if we should continue jumping or jump back to the wall
-
+			JustwallJumped = false;
 			/*
 			if (direction == 1) { 
 				if (PlayerMovement.playerDir > 0) { //if the player jumped on a right wall and is inputting right WHILE at the apex point

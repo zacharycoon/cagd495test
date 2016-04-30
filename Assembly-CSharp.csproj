@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Components\Slash.cs" />
      <Compile Include="Assets\Scripts\Components\StatesBase.cs" />
      <Compile Include="Assets\Scripts\Components\WallGrab.cs" />
+     <Compile Include="Assets\Scripts\LevelComponenets\FragilePillar.cs" />
      <Compile Include="Assets\Scripts\LevelComponenets\Lava.cs" />
      <Compile Include="Assets\Scripts\LevelComponenets\Pillar.cs" />
      <Compile Include="Assets\Scripts\LevelComponenets\Tar.cs" />
@@ -113,14 +114,14 @@
  <Reference Include="ProBuilderCore-Unity5">
  <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
  </Reference>
+ <Reference Include="ProBuilderMeshOps-Unity5">
+ <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
+ </Reference>
  <Reference Include="KDTree">
  <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ClassesLib/KDTree.dll</HintPath>
  </Reference>
  <Reference Include="Triangle">
  <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ClassesLib/Triangle.dll</HintPath>
- </Reference>
- <Reference Include="ProBuilderMeshOps-Unity5">
- <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
