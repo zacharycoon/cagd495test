@@ -6,15 +6,17 @@ namespace Assets.Scripts.Components
 {
 
 	public class WallGrab: CustomComponentBase {
-		float wallDist = 0.6f;
+		float wallDist =0.6f;
 	//	public LayerMask whatisWall = LayerMask.NameToLayer("Wall");
 		int whatisWall = 1 << 8; //for some reason this assigns the raycast to look for the 8th layer mask, which should be "Wall"
 								//if your "Wall" layer is not your 8th layer, you're in for some serious shit
 		float wallBuffer = 0.05f;
+		public float wallslideBuffer = 0.1f;
+		public float notWall = 0f;
 
 		float wallDrag = -1.5f;
 		bool jumpBuffer, walled;
-
+		//bool notWall = false;
 
 
 
@@ -26,7 +28,7 @@ namespace Assets.Scripts.Components
 			if (wallDir != 0) {
 				
 				if (wallDir == 1) {
-					if (playerDir == 1) {
+					if (playerDir == 1 && notWall == 0) {
 						
 						//PlayerMovement.overrideInput = true;	
 						//PlayerMovement.moveVector = new Vector2 (0, wallDrag);
@@ -42,7 +44,7 @@ namespace Assets.Scripts.Components
 					}
 				}
 				if (wallDir == -1) {
-					if (playerDir == -1) {
+					if (playerDir == -1 && notWall == 0) {
 	
 						//PlayerMovement.overrideInput = true;	
 						//PlayerMovement.moveVector = new Vector2 (0, wallDrag);
@@ -59,6 +61,13 @@ namespace Assets.Scripts.Components
 				//walled = false;
 				//PlayerMovement.overrideInput = false;
 
+			}
+
+			if (notWall != 0) {
+				//PlayerMovement.checkforground = false;
+				transform.localPosition = new Vector3 (transform.position.x + (notWall * -1f * wallslideBuffer), transform.position.y, transform.position.z);
+			} else {
+				//PlayerMovement.checkforground = true;
 			}
 
 
@@ -80,24 +89,35 @@ namespace Assets.Scripts.Components
 
 			Ray rightRay = new Ray (transform.position , Vector3.right); 
 			Ray leftRay = new Ray (transform.position, Vector3.right * (-1));
-
-			if(Physics.Raycast(rightRay, wallDist, whatisWall)) //check to see if there is a wall within wallDist to the right of us
+			RaycastHit hit;
+			if(Physics.Raycast(rightRay,out hit, wallDist)) //check to see if there is a wall within wallDist to the right of us
 			{
-		
-				return 1f;
-				rightwalled = true;
+				if (hit.transform.gameObject.layer == 8) {
+					return 1f;
+					rightwalled = true;
+				}else if (hit.transform.gameObject.layer == 10) {
+					notWall = 1;
+					return 0f;
+				}
+				notWall = 0;
+				return 0f;
 
 			}
-			else if(Physics.Raycast(leftRay, wallDist, whatisWall)) //check to see if there is a wall within wallDist to the left of us
+			else if(Physics.Raycast(leftRay,out hit, wallDist)) //check to see if there is a wall within wallDist to the left of us
 			{
-				
-				return -1f;
-				leftwalled = true;
+				if (hit.transform.gameObject.layer == 8) {
+					return -1f;
+					leftwalled = true;
+				}else if (hit.transform.gameObject.layer == 10) {
+					notWall = -1;
+					return 0f;
+				}
+				notWall = 0;
+				return 0f;
 			}
 
 			else{ //if we are not on either wall then set walled to false to be used in other sections of controller
-
-			
+			notWall = 0;
 			return 0f;
 			}
 		

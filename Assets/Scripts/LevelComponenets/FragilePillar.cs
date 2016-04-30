@@ -5,7 +5,8 @@ using Assets.Scripts.Components;
 public class FragilePillar : MonoBehaviour {
 	Transform PillarBotHalf;
 	BoxCollider CrackTrigger;
-	public bool destroy;
+	public Jumping playerjumping;
+	bool canDestroy;
 
 	// Use this for initialization
 	void Start () {
@@ -18,15 +19,19 @@ public class FragilePillar : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 
 		if (col.gameObject.tag == "Player") {
-			Debug.Log ("something");
-			destroy = col.gameObject.GetComponent<Jumping> ().JustwallJumped;
+			canDestroy = true;
+		
+			playerjumping = col.gameObject.GetComponent<Jumping> ();
 			}
 		}
 
+	void OnTriggerExit(Collider col){
+		canDestroy = false;
+	}
 
 	void Update(){
-		if (destroy) {
-			Debug.Log ("fuck yea");
+		if (canDestroy&& playerjumping.JustwallJumped) {
+			PillarBotHalf.GetComponent<Rigidbody> ().isKinematic = false;
 		}
 
 	}

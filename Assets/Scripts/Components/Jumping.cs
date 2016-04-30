@@ -37,8 +37,8 @@ namespace Assets.Scripts.Components
 
 
 		public void BasicJump(float jumpHeight){
-
-			if (jumpStage < maxJumps) {
+			
+			if ((jumpStage < maxJumps)) {
 				PlayerMovement.verticleSpeed = jumpHeight;
 				jumpStage++;
 
@@ -49,7 +49,7 @@ namespace Assets.Scripts.Components
 
 
 		public void WallJump (float playerDir,float wallDir){
-			
+
 			if (wallDir == 1f) { //if we are on the right wall
 				if ((playerDir > 0f) && (wallJumpDir == 0)) { //and holding the right key while against the right wall, reset wall jumping and slowly drag down the wall
 				//	PlayerMovement.moveVector = new Vector2 (0, wallDrag);

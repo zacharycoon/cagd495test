@@ -9,10 +9,10 @@ namespace Assets.Scripts.Components
 
 
 	public class RelicManager: CustomComponentBase {
-		public bool jumpRelic;
-		public bool wallJumpRelic;
-		public bool dashRelic;
-		public bool slashRelic;
+		public bool jumpRelic = true;
+		public bool wallJumpRelic = true;
+		public bool dashRelic = true;
+		public bool slashRelic = true;
 
 	
 

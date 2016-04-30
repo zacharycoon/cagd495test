@@ -29,7 +29,7 @@ namespace Assets.Scripts.Components
 		public float gravity = 80f;
 		public bool grounded;
 		public bool checkforwalls;
-		bool checkforground = true;
+		public static bool checkforground = true;
 		public float upRayLength = 0.9f;
 		public float ceilingHitSpeed = -1f;
 		int celingmask = 1 << 8;
@@ -85,6 +85,7 @@ namespace Assets.Scripts.Components
 				//checkforwalls = true;
 			}
 			if (grounded) {
+				_wallGrab.notWall = 0f;
 				_dash.OverrideDash ();
 				_dash.ResetDashing ();
 			}
@@ -119,6 +120,10 @@ namespace Assets.Scripts.Components
 
 	
 		public void JumpPlayer(float Direction){
+			if (_wallGrab.notWall != 0) {
+				return;
+			}
+
 			if ((walled != 0)&&!grounded) {
 				_jump.WallJump (Direction, walled);
 
@@ -163,7 +168,6 @@ namespace Assets.Scripts.Components
 
 			//Ray UpRay = new Ray (transform.position , transform.up); 
 			if(Physics.Raycast(transform.position, transform.up, upRayLength, celingmask)){
-			Debug.Log ("fuck");
 				verticleSpeed = ceilingHitSpeed;
 			}
 		}
