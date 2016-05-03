@@ -1,20 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelComponenets\RollingPillarBehavior.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelComponenets\Zmovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\LevelComponenets\FragilePillar.cs" Line="34" Column="65" />
-      <File FileName="Assets\Scripts\LevelComponenets\Pillar.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\LevelComponenets\FragilePillar.cs" Line="9" Column="18" />
+      <File FileName="Assets\Scripts\LevelComponenets\Pillar.cs" Line="12" Column="10" />
       <File FileName="Assets\Scripts\Camera\_Camera.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\LevelComponenets\WheelPlatforms.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Character\CharController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Components\PlayerMovement.cs" Line="170" Column="83" />
-      <File FileName="Assets\Scripts\Components\Jumping.cs" Line="41" Column="30" />
-      <File FileName="Assets\Scripts\Relics\UpgradeRelic.cs" Line="3" Column="1" />
+      <File FileName="Assets\Scripts\Components\PlayerMovement.cs" Line="121" Column="81" />
+      <File FileName="Assets\Scripts\Components\Jumping.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Relics\UpgradeRelic.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\LevelComponenets\RollingPillar.cs" Line="19" Column="46" />
-      <File FileName="Assets\Scripts\LevelComponenets\RollingPillarBehavior.cs" Line="40" Column="78" />
-      <File FileName="Assets\Scripts\Components\WallGrab.cs" Line="119" Column="108" />
-      <File FileName="Assets\Scripts\Misc\SpawnPlayer.cs" Line="11" Column="65" />
-      <File FileName="Assets\Scripts\Components\RelicManager.cs" Line="35" Column="30" />
+      <File FileName="Assets\Scripts\LevelComponenets\RollingPillarBehavior.cs" Line="38" Column="2" />
+      <File FileName="Assets\Scripts\Components\WallGrab.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Misc\SpawnPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Components\RelicManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\LevelComponenets\Zmovement.cs" Line="35" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

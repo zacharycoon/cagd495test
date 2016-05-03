@@ -10,6 +10,7 @@ namespace Assets.Scripts.Components
 		Components.Dash _dash;
 		Components.WallGrab _wallGrab;
 
+
 	
 		CharacterController charCont;
 
@@ -116,6 +117,10 @@ namespace Assets.Scripts.Components
 		
 			charCont.Move (moveVector * Time.deltaTime); //apply movement in the x and y
 		
+			if (transform.position.z != 0) {
+				transform.position = new Vector3 (transform.position.x, transform.position.y, 0f);
+			}
+
 		}
 
 	
