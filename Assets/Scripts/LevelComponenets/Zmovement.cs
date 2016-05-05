@@ -19,6 +19,9 @@ public class Zmovement : MonoBehaviour {
 	float currentspeed =0;
 
 	Vector3 startpos;
+	bool move = true;
+	bool changeDir;
+
 	// Use this for initialization
 	void Start () {
 		startpos = this.gameObject.transform.position;
@@ -27,9 +30,10 @@ public class Zmovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 moveVector = new Vector3 (0,0, currentspeed);
-		transform.Translate (moveVector * Time.deltaTime);
-
+		if (move && transform.position.z <= startpos.z) {
+			Vector3 moveVector = new Vector3 (0, 0, currentspeed);
+			transform.Translate (moveVector * Time.deltaTime);
+		}
 	}
 		void GetGoing(){
 		transform.position = startpos;
@@ -39,10 +43,17 @@ public class Zmovement : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){
 		if (col.gameObject.tag == "Player") {
-			currentspeed = 0;
-			StopAllCoroutines ();
+		//	currentspeed = 0;
+		//	StopAllCoroutines ();
+			move = false;
+		//	Invoke ("GetGoing", 1f);
+		}
 
-			Invoke ("GetGoing", 1f);
+	}
+
+	void OnTriggerExit(Collider col){
+		if (col.gameObject.tag == "Player") {
+			move = true;
 		}
 
 	}
@@ -54,6 +65,10 @@ public class Zmovement : MonoBehaviour {
 		yield return new WaitForSeconds ( waitTime);
 		speed *= -1f;
 		currentspeed = speed;
+		changeDir = !changeDir;
+		if (!changeDir) {
+			transform.position = startpos;
+		}
 		StartCoroutine ("moveAround"); 
 		yield break;
 	}
