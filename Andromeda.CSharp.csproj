@@ -109,6 +109,7 @@
     <Compile Include="Assets\Scripts\LevelComponenets\RollingPillarBehavior.cs" />
     <Compile Include="Assets\Scripts\LevelComponenets\Tar.cs" />
     <Compile Include="Assets\Scripts\LevelComponenets\WheelPlatforms.cs" />
+    <Compile Include="Assets\Scripts\LevelComponenets\Zmovement.cs" />
     <Compile Include="Assets\Scripts\Misc\DealDamage.cs" />
     <Compile Include="Assets\Scripts\Misc\HideSprite.cs" />
     <Compile Include="Assets\Scripts\Misc\Projectile.cs" />

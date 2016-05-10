@@ -55,7 +55,6 @@ namespace Assets.Scripts.Components
 			Ray downRay = new Ray (transform.position, -Vector3.up); 
 			if (Physics.Raycast (downRay, out hit, 1f)) {
 				if (hit.transform.gameObject.layer == 9) {
-					Debug.Log ("something else");
 					this.gameObject.transform.SetParent (hit.transform);
 				} else {
 					this.gameObject.transform.SetParent (null);
