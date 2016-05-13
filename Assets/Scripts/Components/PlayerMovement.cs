@@ -35,6 +35,7 @@ namespace Assets.Scripts.Components
 		public float ceilingHitSpeed = -1f;
 		int celingmask = 1 << 8;
 		int movingGround = 1 << 9;
+		public float maxVertSpeed = -40;
 		// Use this for initialization
 		void Awake () {
 			_jump = gameObject.AddComponent<Jumping> ();
@@ -99,7 +100,9 @@ namespace Assets.Scripts.Components
 					checkforwalls = false;
 				}
 				if (!grounded) {
-					verticleSpeed -= gravity * Time.deltaTime;
+					if (verticleSpeed > maxVertSpeed) {
+						verticleSpeed -= gravity * Time.deltaTime;
+					}
 				}
 				if (!waitForJump) {
 					checkforwalls = true;

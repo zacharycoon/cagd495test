@@ -38,10 +38,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -72,8 +72,13 @@
      <Compile Include="Assets\Scripts\Components\Slash.cs" />
      <Compile Include="Assets\Scripts\Components\StatesBase.cs" />
      <Compile Include="Assets\Scripts\Components\WallGrab.cs" />
+     <Compile Include="Assets\Scripts\LevelComponenets\BatBehavior.cs" />
+     <Compile Include="Assets\Scripts\LevelComponenets\BatNest.cs" />
+     <Compile Include="Assets\Scripts\LevelComponenets\ElevatorPlat.cs" />
      <Compile Include="Assets\Scripts\LevelComponenets\FragilePillar.cs" />
      <Compile Include="Assets\Scripts\LevelComponenets\Lava.cs" />
+     <Compile Include="Assets\Scripts\LevelComponenets\LavaMonster.cs" />
+     <Compile Include="Assets\Scripts\LevelComponenets\MoltenCrab.cs" />
      <Compile Include="Assets\Scripts\LevelComponenets\Pillar.cs" />
      <Compile Include="Assets\Scripts\LevelComponenets\RollingPillar.cs" />
      <Compile Include="Assets\Scripts\LevelComponenets\RollingPillarBehavior.cs" />
@@ -111,22 +116,22 @@
      <None Include="Assets\ProCore\ProBuilder\readme.txt" />
      <None Include="Assets\ProCore\ProBuilder\About\Credits.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore-Unity5">
- <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
+ <HintPath>C:/Users/Steven/Desktop/androm/Andromeda/Andromeda/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderMeshOps-Unity5">
- <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
+ <HintPath>C:/Users/Steven/Desktop/androm/Andromeda/Andromeda/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="KDTree">
- <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ClassesLib/KDTree.dll</HintPath>
+ <HintPath>C:/Users/Steven/Desktop/androm/Andromeda/Andromeda/Assets/ProCore/ProBuilder/Classes/ClassesLib/KDTree.dll</HintPath>
  </Reference>
  <Reference Include="Triangle">
- <HintPath>C:/Users/CAGD Student/Desktop/Andromeda/Assets/ProCore/ProBuilder/Classes/ClassesLib/Triangle.dll</HintPath>
+ <HintPath>C:/Users/Steven/Desktop/androm/Andromeda/Andromeda/Assets/ProCore/ProBuilder/Classes/ClassesLib/Triangle.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
