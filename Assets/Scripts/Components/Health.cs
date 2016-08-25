@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 
 namespace Assets.Scripts.Components
 {
@@ -10,6 +12,7 @@ namespace Assets.Scripts.Components
 		public float CurStuff= 0f;
 		float pointValue;
 		List<GameObject> collectedLoot;
+        public float hitPoints = 10;
 
 		public void TotalStuff(){
 			GameObject[] tempList = GameObject.FindGameObjectsWithTag ("Loot");
@@ -26,7 +29,19 @@ namespace Assets.Scripts.Components
 				col.gameObject.SetActive (false);
 			}
 
-		}
+            if (col.gameObject.tag == "Enemy")
+            {
+                hitPoints -= 2;
+            }
+
+        }
+
+        void Update() {
+            if (hitPoints <= 0) {
+                string sceneName = SceneManager.GetActiveScene().name;
+                SceneManager.LoadScene(sceneName, LoadSceneMode.Single);   
+            }
+        }
 
 		public void TakeDamage(float damage){
 			for (int relicsLost = 0; relicsLost < damage; relicsLost++) {

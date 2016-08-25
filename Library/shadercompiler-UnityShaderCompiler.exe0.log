@@ -1,13 +1,9 @@
-Base path: C:/Users/CAGD Student/Desktop/Unity Versions/Editor/Data
+Base path: C:/Program Files/Unity Versions/Unity5_3/Editor/Data
 Cmd: getPlatforms
 Cmd: preprocess
   insize=21604 outsize=3718 ok=1
 Cmd: preprocess
   insize=1389 outsize=487 ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=1204 outsize=869 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=1204 outsize=777 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING ok=1
 Cmd: preprocess
   insize=542 outsize=1522 ok=1
 Cmd: preprocess
